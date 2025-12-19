@@ -44,3 +44,59 @@
     opacity: 0.7;
     margin-top: 6px;
 }
+
+button {
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 10px;
+    background: #111;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.92;
+}
+
+.ligneHautCarte {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.poigneeDrag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 26px;
+    border-radius: 8px;
+    background: #f1f2f6;
+    cursor: grab;
+    user-select: none;
+}
+
+.actionsCarte {
+    display: flex;
+    gap: 6px;
+}
+
+.btnCarte {
+    width: 30px;
+    height: 26px;
+    border-radius: 8px;
+    border: 1px solid #b62727;
+    background:white;
+    cursor: pointer;
+    line-height: 1;
+    color:black;
+}
+
+.btnCarte:hover {
+    opacity: 0.9;
+}
+
+.btnCarte.danger {
+    border-color: #f0c7cf;
+}

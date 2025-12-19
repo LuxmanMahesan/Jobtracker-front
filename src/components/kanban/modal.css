@@ -1,0 +1,88 @@
+.overlayModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 12, 20, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    z-index: 999;
+}
+
+.contenuModal {
+    width: min(640px, 100%);
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.enteteModal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 14px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.formModal {
+    padding: 14px;
+}
+
+.formModal label {
+    display: block;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    opacity: 0.9;
+}
+
+.formModal input,
+.formModal select,
+.formModal textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.ligneDeuxColonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.case {
+    display: flex;
+    align-items: center;
+    margin-top: 26px;
+}
+
+.labelCase {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    margin: 0 !important;
+}
+
+.erreurModal {
+    color: crimson;
+    margin-top: 10px;
+}
+
+.piedModal {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.btnPrimaire {
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 10px;
+    background: #111;
+    color: white;
+    cursor: pointer;
+}
