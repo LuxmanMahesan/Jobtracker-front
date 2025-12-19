@@ -1,0 +1,46 @@
+.kanban {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+.colonne {
+    min-width: 240px;
+    background: #eef1f7;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.colonneTitre {
+    font-weight: 700;
+    margin: 6px 6px 10px;
+}
+
+.draggableWrap {
+    margin-bottom: 10px;
+}
+
+.carteCandidature {
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    cursor: grab;
+}
+
+.carteTitre {
+    font-weight: 700;
+}
+
+.carteSousTitre {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 3px;
+}
+
+.carteMini {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 6px;
+}
