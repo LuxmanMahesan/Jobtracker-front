@@ -100,3 +100,31 @@ button:hover {
 .btnCarte.danger {
     border-color: #f0c7cf;
 }
+
+
+.ligneLien {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.badgeLien {
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+.lienAnnonce {
+    font-size: 12px;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.35);
+}
+
+.lienAnnonce:hover {
+    opacity: 0.85;
+}
+
+.lienAnnonce.invalide {
+    opacity: 0.7;
+    border-bottom: none;
+}
