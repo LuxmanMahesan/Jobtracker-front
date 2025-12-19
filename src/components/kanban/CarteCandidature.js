@@ -1,12 +1,11 @@
+import { joursRestants } from "../../utils/dateUtils";
+
 function normaliserUrl(url) {
     if (!url) return null;
     const u = url.trim();
     if (!u) return null;
 
-    // si l’utilisateur met "www.site.com" sans protocole
     if (u.startsWith("www.")) return `https://${u}`;
-
-    // si l’utilisateur met "site.com" sans protocole (optionnel)
     if (!u.startsWith("http://") && !u.startsWith("https://")) return `https://${u}`;
 
     return u;
@@ -42,15 +41,39 @@ export default function CarteCandidature({
     const urlAnnonce = normaliserUrl(candidature.lienAnnonce);
 
     const ouvrirAnnonce = (e) => {
-        // ✅ Important : empêche le clic de remonter sur la carte
         e.preventDefault();
         e.stopPropagation();
-
         if (!urlAnnonce) return;
-
-        // ✅ Robuste même si un parent fait preventDefault()
         window.open(urlAnnonce, "_blank", "noopener,noreferrer");
     };
+
+    const dateRelance = candidature.dateRelance;
+    const reste = joursRestants(dateRelance);
+
+    let texteRelance = "";
+    let classRelance = "";
+
+    if (reste !== null) {
+        if (reste > 7) {
+            texteRelance = `Relance dans ${reste} jours`;
+            classRelance = "relanceOk";
+        } else if (reste > 0) {
+            texteRelance = `Relance dans ${reste} jours`;
+            classRelance = "relanceMoyen";
+        } else if (reste === 0) {
+            texteRelance = "Relance aujourd’hui";
+            classRelance = "relanceUrgent";
+        } else {
+            texteRelance = `Retard de ${Math.abs(reste)} jours ⚠️`;
+            classRelance = "relanceUrgent";
+        }
+    }
+
+    console.log(
+        `%c📌 CANDIDATURE ${candidature.id}`,
+        "color:#007bff;font-weight:bold;",
+        { dateRelance, reste }
+    );
 
     return (
         <div className="carteCandidature">
@@ -80,12 +103,9 @@ export default function CarteCandidature({
                 <div className="carteMini">Envoi : {candidature.dateEnvoi}</div>
             )}
 
-            {/* ✅ Lien annonce */}
             {urlAnnonce && (
                 <div className="ligneLien">
                     <span className="badgeLien">🔗</span>
-
-                    {/* onMouseDown stopPropagation évite aussi un “début de drag” selon certains cas */}
                     <a
                         className="lienAnnonce"
                         href={urlAnnonce}
@@ -97,6 +117,12 @@ export default function CarteCandidature({
                     >
                         {rendreLienAffichage(urlAnnonce)}
                     </a>
+                </div>
+            )}
+
+            {texteRelance && (
+                <div className={`ligneRelance ${classRelance}`}>
+                    {texteRelance}
                 </div>
             )}
         </div>

@@ -1,18 +1,18 @@
 import client from "../api/client";
 
 function versRequete(c) {
-
     return {
         entreprise: c.entreprise ?? "",
         titrePoste: c.titrePoste ?? "",
         typeContrat: c.typeContrat ?? "",
         lienAnnonce: c.lienAnnonce ?? "",
         statut: c.statut ?? "A_POSTULER",
-        dateEnvoi: c.dateEnvoi ?? null,
-        dateLimite: c.dateLimite ?? null,
+        dateEnvoi: c.dateEnvoi || null,
+        dateLimite: c.dateLimite || null,
         notes: c.notes ?? "",
-        joursAvantRelance: c.joursAvantRelance ?? null,
-        relanceActive: c.relanceActive ?? false,
+        joursAvantRelance: c.joursAvantRelance ? Number(c.joursAvantRelance) : null,
+        relanceActive: !!c.relanceActive,
+        // ❌ On n'envoie PAS dateRelance : le backend la calcule
     };
 }
 

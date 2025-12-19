@@ -128,3 +128,22 @@ button:hover {
     opacity: 0.7;
     border-bottom: none;
 }
+
+.ligneRelance {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.relanceOk {
+    color: #2e7d32;
+}
+
+.relanceMoyen {
+    color: #ff8f00;
+}
+
+.relanceUrgent {
+    color: #c62828;
+}
+

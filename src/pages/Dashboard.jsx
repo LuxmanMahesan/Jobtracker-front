@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import KanbanBoard from "../components/kanban/KanbanBoard";
 import ModalCandidature from "../components/kanban/ModalCandidature";
+
 import {
     listerCandidatures,
     modifierCandidature,
@@ -15,7 +16,7 @@ export default function Dashboard() {
     const [chargement, setChargement] = useState(true);
 
     const [modalOuvert, setModalOuvert] = useState(false);
-    const [modeModal, setModeModal] = useState("creation"); // "creation" | "edition"
+    const [modeModal, setModeModal] = useState("creation");
     const [candidatureSelectionnee, setCandidatureSelectionnee] = useState(null);
 
     const navigate = useNavigate();
@@ -83,7 +84,6 @@ export default function Dashboard() {
         if (modeModal === "edition" && candidatureSelectionnee) {
             const id = candidatureSelectionnee.id;
             const maj = await modifierCandidature(id, payload);
-
             setCandidatures((ancien) => ancien.map((c) => (c.id === id ? maj : c)));
         }
     };
@@ -95,8 +95,6 @@ export default function Dashboard() {
         if (!ok) return;
 
         const id = candidature.id;
-
-        // Optimiste
         setCandidatures((ancien) => ancien.filter((c) => c.id !== id));
 
         try {
