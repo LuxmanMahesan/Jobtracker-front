@@ -115,7 +115,7 @@ export default function Dashboard() {
                     flexWrap: "wrap",
                 }}
             >
-                <h1 style={{ margin: 0 }}>Kanban des candidatures</h1>
+                <h1 style={{ margin: 0 }}>Tableau de bord des candidatures</h1>
 
                 <div style={{ display: "flex", gap: 8 }}>
                     <button onClick={ouvrirCreation}>+ Nouvelle candidature</button>
